@@ -2,6 +2,7 @@ package nibbles;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
@@ -10,6 +11,7 @@ import java.awt.event.KeyListener;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -171,9 +173,12 @@ public class GameWindow extends JFrame {
 			Graphics2D g2 = (Graphics2D)g;
 
 			//fillbackground
-			g2.setColor(Color.BLUE);
+			g2.setColor(new Color(52, 152, 219));
 			g2.fill(getVisibleRect());
-
+			
+			Font font = new Font("Ariel", Font.PLAIN, 20);
+			g2.setFont(font);
+			
 			//draw cells
 			for (int i=0; i<width; i++)
 				for (int j=0; j<height; j++) {
@@ -183,8 +188,10 @@ public class GameWindow extends JFrame {
 							g2.fill(new Rectangle2D.Double(i*squaresize,j*squaresize,squaresize,squaresize));
 						else if (shape[i][j] == CIRCLE)
 							g2.fill(new Ellipse2D.Double(i*squaresize,j*squaresize,squaresize,squaresize));
-						else
-							g2.drawString(String.valueOf(shape[i][j]),i*squaresize,(j+1)*squaresize);
+						else {
+							g2.draw(new Ellipse2D.Double(i*squaresize,j*squaresize,squaresize,squaresize));
+							g2.drawString(String.valueOf(shape[i][j]), (int) ((i + 0.35) * squaresize), (int) ((j + 0.75) * squaresize));
+						}
 					}
 				}
 		}

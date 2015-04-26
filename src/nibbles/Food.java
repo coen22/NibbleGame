@@ -32,7 +32,7 @@ public class Food extends FieldObject {
 
 	@Override
 	public void draw(GameWindow gw) {
-		gw.drawNumber(body.get(0).getX(), body.get(0).getY(), Color.GREEN, value);
+		gw.drawNumber(body.get(0).getX(), body.get(0).getY(), new Color(44, 62, 80), value);
 	}
 	
 	private Coordinate findEmptyLocation(int width, int height, ArrayList<FieldObject> allObjects) {

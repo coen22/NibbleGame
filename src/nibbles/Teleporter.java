@@ -32,8 +32,11 @@ public class Teleporter extends FieldObject {
 	
 	@Override
 	public boolean handleCollision(MovableFieldObject mov) {
-		mov.head = new Coordinate(getPartner().getLocation().getX(), getPartner().getLocation().getY());
 		
+		mov.toClear.addAll(mov.body);
+		mov.body.clear();
+		mov.head = new Coordinate(getPartner().getLocation().getX(), getPartner().getLocation().getY());
+
 		return true;
 	}
 

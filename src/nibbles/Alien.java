@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Alien extends MovableFieldObject {
 
 	public Alien(int x, int y, int dir) {
-		color = Color.RED;
+		color = new Color(231, 76, 60);
 		shape = CIRCLE;
 
 		alive = true;
@@ -18,8 +18,6 @@ public class Alien extends MovableFieldObject {
 	
 	public void move() {
 		super.move();
-		
-		System.out.println(this + " body = (" + body.get(0).getX() + ", " + body.get(0).getX() + ")");
 	}
 	
 	@Override

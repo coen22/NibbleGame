@@ -10,9 +10,9 @@ import nibbles.*;
 public class NibblesApp {
 
 	public static void main(String[] args) {
-		int width = 70;
-		int height = 50;
-		int squaresize = 20;
+		int width = 50;
+		int height = 25;
+		int squaresize = 32;
 		
 		GameWindow window = new GameWindow(width,height,squaresize);
 		
@@ -33,7 +33,7 @@ public class NibblesApp {
 		buf1.registerInterest(KeyEvent.VK_RIGHT);
 		window.registerKeyBuffer(buf1);
 		int[] list1 = {KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_LEFT,KeyEvent.VK_RIGHT};
-		allObjects.add(new Snake(width/10,height/4,MovableFieldObject.RIGHT,Color.YELLOW,list1,buf1));
+		allObjects.add(new Snake(width/10,height/4,MovableFieldObject.RIGHT,new Color(241, 196, 15),list1,buf1));
 		
 		// Initialize snake 2
 		KeyBuffer buf2 = new KeyBuffer();
@@ -43,7 +43,7 @@ public class NibblesApp {
 		buf2.registerInterest(KeyEvent.VK_D);
 		window.registerKeyBuffer(buf2);
 		int[] list2 = {KeyEvent.VK_W,KeyEvent.VK_S,KeyEvent.VK_A,KeyEvent.VK_D};
-		allObjects.add(new Snake(width-width/10,height-height/4,MovableFieldObject.LEFT,Color.MAGENTA,list2,buf2));
+		allObjects.add(new Snake(width-width/10,height-height/4,MovableFieldObject.LEFT,new Color(155, 89, 182),list2,buf2));
 
 		// Initialize 2 connected teleporters (Uncomment to test your Teleporter implementation)
 		Teleporter t1 = new Teleporter(width/10,height-height/4);
@@ -79,7 +79,8 @@ public class NibblesApp {
 		//Draw all objects ready to start and wait till the user(s) is(are) ready too.
 		for (FieldObject fo: allObjects)
 			fo.draw(window);
-		JOptionPane.showMessageDialog(window,"Click OK when ready.");
+		
+		try {Thread.sleep(1000);} catch (Exception e) {};
 		
 		// Two stopping conditions
 		// 1. all snakes are dead

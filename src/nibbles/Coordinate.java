@@ -24,4 +24,7 @@ public class Coordinate {
 		return ((x==c.getX()) && (y==c.getY()));
 	}
 	
+	public String toString() {
+		return "(" + x + ", " + y + ")";
+	}
 }

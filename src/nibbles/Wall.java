@@ -8,7 +8,7 @@ public class Wall extends FieldObject {
 	public Wall(int startX, int startY, int stopX, int stopY) {
 		
 		shape = FieldObject.SQUARE;
-		color = Color.RED;
+		color = new Color(52, 73, 94);
 		
 		int maxDiff = Math.max(stopX-startX, stopY-startY);
 		double xStep = 1.0*(stopX-startX)/maxDiff;
