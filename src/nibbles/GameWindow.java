@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 
 public class GameWindow extends JFrame {
+	private static final long serialVersionUID = 8214150611122604273L;
 	private ArrayList<KeyBuffer> registeredKeyBuffers;
 	private FieldPanel panel;
 
@@ -120,6 +121,7 @@ public class GameWindow extends JFrame {
 
 	private class FieldPanel extends JPanel {
 
+		private static final long serialVersionUID = 1587595057655180095L;
 		private static final int SQUARE = -2;
 		private static final int CIRCLE = -1;
 		private int squaresize;

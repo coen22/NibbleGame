@@ -1,6 +1,7 @@
 package nibbles;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class Teleporter extends FieldObject {
 
@@ -8,6 +9,7 @@ public class Teleporter extends FieldObject {
 	
 	public Teleporter(int x, int y) {
 		color = Color.GREEN;
+		body = new ArrayList<Coordinate>();
 		body.add(new Coordinate(x, y));
 	}
 	
@@ -30,8 +32,9 @@ public class Teleporter extends FieldObject {
 	
 	@Override
 	public boolean handleCollision(MovableFieldObject mov) {
-		// TODO Auto-generated method stub
-		return false;
+		mov.head = new Coordinate(getPartner().getLocation().getX(), getPartner().getLocation().getY());
+		
+		return true;
 	}
 
 }

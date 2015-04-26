@@ -44,6 +44,9 @@ public class Snake extends MovableFieldObject {
 
 	@Override
 	public boolean handleCollision(MovableFieldObject mov) {
+		if (mov == this)
+			return true;
+		
 		return false;
 	}
 

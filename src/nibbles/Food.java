@@ -10,7 +10,6 @@ public class Food extends FieldObject {
 	protected int height;
 	protected ArrayList<FieldObject> allObjects;
 	
-	
 	public Food(int width, int height, ArrayList<FieldObject> allObjects) {
 		this.width = width;
 		this.height = height;

@@ -2,6 +2,7 @@
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import nibbles.*;
@@ -11,7 +12,7 @@ public class NibblesApp {
 	public static void main(String[] args) {
 		int width = 70;
 		int height = 50;
-		int squaresize = 10;
+		int squaresize = 20;
 		
 		GameWindow window = new GameWindow(width,height,squaresize);
 		
@@ -45,31 +46,32 @@ public class NibblesApp {
 		allObjects.add(new Snake(width-width/10,height-height/4,MovableFieldObject.LEFT,Color.MAGENTA,list2,buf2));
 
 		// Initialize 2 connected teleporters (Uncomment to test your Teleporter implementation)
-//		Teleporter t1 = new Teleporter(width/10,height-height/4);
-//		Teleporter t2 = new Teleporter(width-width/10,height/4);
-//		t1.coupleWith(t2);
-//		allObjects.add(t1);
-//		allObjects.add(t2);
+		Teleporter t1 = new Teleporter(width/10,height-height/4);
+		Teleporter t2 = new Teleporter(width-width/10,height/4);
+		
+		t1.coupleWith(t2);
+		
+		allObjects.add(t1);
+		allObjects.add(t2);
 		
 		// Initialize 4 connected magic portals (Uncomment to test your MagicPortal implementation)
-//		MagicPortal m1 = new MagicPortal(width/3,height/3);
-//		MagicPortal m2 = new MagicPortal(width-width/3,height/3);
-//		MagicPortal m3 = new MagicPortal(width/3,height-height/3);
-//		MagicPortal m4 = new MagicPortal(width-width/3,height-height/3);
-//		m1.addCoupling(m2);
-//		m1.addCoupling(m3);
-//		m1.addCoupling(m4);
-//		m2.addCoupling(m3);
-//		m2.addCoupling(m4);
-//		m3.addCoupling(m4);
-//		allObjects.add(m1);
-//		allObjects.add(m2);
-//		allObjects.add(m3);
-//		allObjects.add(m4);
+		MagicPortal m1 = new MagicPortal(width/3,height/3);
+		MagicPortal m2 = new MagicPortal(width-width/3,height/3);
+		MagicPortal m3 = new MagicPortal(width/3,height-height/3);
+		MagicPortal m4 = new MagicPortal(width-width/3,height-height/3);
+		
+		m1.addCoupling(m2);
+		m1.addCoupling(m3);
+		m1.addCoupling(m4);
+		
+		allObjects.add(m1);
+		allObjects.add(m2);
+		allObjects.add(m3);
+		allObjects.add(m4);
 		
 		// Initialize the aliens (Uncomment to test your Alien implementation)
-//		allObjects.add(new Alien(width/2,height/10,MovableFieldObject.DOWN));
-//		allObjects.add(new Alien(width/2,height-height/10,MovableFieldObject.UP));
+		allObjects.add(new Alien(width/2,height/10,MovableFieldObject.DOWN));
+		allObjects.add(new Alien(width/2,height-height/10,MovableFieldObject.UP));
 	
 		//Food MUST be initialized last, so it can find itself a random open cell
 		allObjects.add(new Food(width,height,allObjects));
